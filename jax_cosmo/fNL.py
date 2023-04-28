@@ -86,9 +86,10 @@ class Cosmology_fNL:
         self._wa = wa
 
         self._flags = {}
+        self._flags["gamma_growth"] = False
 
         # Secondary optional parameters
-        self._gamma   = gamma
+        self._gamma   = None #We will never use gamma so this is fine
         self._fNL     = fNL
         self._A_lin   = A_lin
         self._A_log   = A_log
