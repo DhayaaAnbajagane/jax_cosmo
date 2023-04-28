@@ -16,7 +16,10 @@ def primordial_matter_power(cosmo, k):
     """Primordial power spectrum
     Pk = k^n
     """
-    return k**cosmo.n_s
+
+    lin_oscillations = cosmo.A_lin*np.sin(cosmo.w_lin*k + cosmo.phi_lin)
+    log_oscillations = cosmo.A_log*np.sin(cosmo.w_log*np.log(k/cosmo.kstar) + cosmo.phi_log)
+    return k**cosmo.n_s * (1 + lin_oscillations +  log_oscillations)
 
 
 def linear_matter_power(cosmo, k, a=1.0, transfer_fn=tklib.Eisenstein_Hu, **kwargs):
