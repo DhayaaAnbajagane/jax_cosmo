@@ -54,8 +54,6 @@ class Cosmology_fNL:
           First order term of dark energy equation
         wa, float
           Second order term of dark energy equation of state
-        gamma: float
-          Index of the growth rate (optional)
         fNL: float
           Amplitude of local-type fNL
         A_lin: float
@@ -71,9 +69,7 @@ class Cosmology_fNL:
 
         Notes:
         ------
-        If `gamma` is specified, the emprical characterisation of growth in
-        terms of  dlnD/dlna = \omega^\gamma will be used to define growth throughout.
-        Otherwise the linear growth factor and growth rate will be solved by ODE.
+        We have removed "gamma" as an input parameter compared to the original cosmology fNL for simplicity.
         """
         # Store primary parameters
         self._Omega_c = Omega_c
@@ -189,7 +185,6 @@ class Cosmology_fNL:
             Omega_k=Omega_k,
             w0=w0,
             wa=wa,
-            gamma=gamma,
             fNL=fNL,
             A_lin = A_lin,
             A_log = A_log,
