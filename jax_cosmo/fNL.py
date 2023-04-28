@@ -13,7 +13,7 @@ import jax_cosmo.background as bkgrd
 import jax_cosmo.constants as const
 import jax_cosmo.power as power
 import jax_cosmo.transfer as tklib
-import jax_cosmo.bias as bias
+import jax_cosmo.bias as tracer_bias
 from jax_cosmo.scipy.integrate import simps
 from jax_cosmo.utils import a2z
 from jax_cosmo.utils import z2a
@@ -372,7 +372,7 @@ class WeakLensing_fNL(WeakLensing):
         sigma_e=0.26,
         **kwargs
     ):
-        bias = bias.constant_linear_bias(1) #This is done to monkeypatch angular_Cl_fNL code and include WL tracer
+        bias = tracer_bias.constant_linear_bias(1) #This is done to monkeypatch angular_Cl_fNL code and include WL tracer
 
         # Depending on the Configuration we will trace or not the ia_bias in the
         # container
