@@ -22,7 +22,6 @@ import jax_cosmo.redshift as rds
 from jax.experimental.ode import odeint
 from jax.tree_util import register_pytree_node_class
 
-import jax_cosmo.bias as bias
 from jax_cosmo.probes import NumberCounts, WeakLensing, weak_lensing_kernel
 
 from jax_cosmo.angular_cl import _get_cl_ordering, _get_cov_blocks_ordering
