@@ -14,7 +14,7 @@ import jax_cosmo.constants as const
 import jax_cosmo.power as power
 import jax_cosmo.transfer as tklib
 from jax_cosmo.scipy.integrate import simps
-from jax_cosmo.utils import a2z
+from jax_cosmo.utils import a2zq
 from jax_cosmo.utils import z2a
 import jax_cosmo.redshift as rds
 
