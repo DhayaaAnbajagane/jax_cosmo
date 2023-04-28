@@ -1,16 +1,31 @@
 # This module defines kernel functions for various tracers
+
+from functools import partial
+from jax.config import config
+config.update("jax_enable_x64", True)
+
 import jax.numpy as np
 from jax import jit
+from jax import lax
 from jax import vmap
-from jax.tree_util import register_pytree_node_class
 
 import jax_cosmo.background as bkgrd
 import jax_cosmo.constants as const
-import jax_cosmo.redshift as rds
-from jax_cosmo.jax_utils import container
+import jax_cosmo.power as power
+import jax_cosmo.transfer as tklib
 from jax_cosmo.scipy.integrate import simps
 from jax_cosmo.utils import a2z
 from jax_cosmo.utils import z2a
+import jax_cosmo.redshift as rds
+
+from jax.experimental.ode import odeint
+from jax.tree_util import register_pytree_node_class
+
+import jax_cosmo.bias as bias
+from jax_cosmo.probes import NumberCounts, WeakLensing, weak_lensing_kernel
+
+from jax_cosmo.angular_cl import _get_cl_ordering, _get_cov_blocks_ordering
+
 
 __all__ = ["WeakLensing", "NumberCounts"]
 
